@@ -1,10 +1,5 @@
 def main(raw_input):
-    # Parse input
-
-    # Solve problem
-
-    # Return solution
-    return None
+    return raw_input.count('(') - raw_input.count(')')
 
 
 def get_input(filename):

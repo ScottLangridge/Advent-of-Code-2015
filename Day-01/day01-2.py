@@ -1,10 +1,12 @@
 def main(raw_input):
-    # Parse input
-
-    # Solve problem
-
-    # Return solution
-    return None
+    floor = 0
+    for i, char in enumerate(raw_input):
+        if char == '(':
+            floor += 1
+        else:
+            floor -= 1
+            if floor < 0:
+                return i + 1
 
 
 def get_input(filename):
