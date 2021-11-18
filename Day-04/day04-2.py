@@ -1,10 +1,14 @@
+import hashlib
+
+
 def main(raw_input):
-    # Parse input
+    key = raw_input
+    suffix = 0
 
-    # Solve problem
+    while not hashlib.md5((key + str(suffix)).encode('utf-8')).hexdigest().startswith('000000'):
+        suffix += 1
 
-    # Return solution
-    return None
+    return suffix
 
 
 def get_input(filename):
