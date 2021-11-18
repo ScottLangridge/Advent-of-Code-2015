@@ -1,10 +1,20 @@
 def main(raw_input):
-    # Parse input
+    boxes = [box.split('x') for box in raw_input.splitlines()]
 
-    # Solve problem
+    wrapping_paper = 0
+    for box in boxes:
+        l, w, h = [int(dimension) for dimension in box]
+        wrapping_paper += surface_area(l, w, h) + slack(l, w, h)
 
-    # Return solution
-    return None
+    return wrapping_paper
+
+
+def surface_area(l, w, h):
+    return (2 * l * w) + (2 * w * h) + (2 * h * l)
+
+
+def slack(l, w, h):
+    return min([l * w, w * h, h * l])
 
 
 def get_input(filename):
