@@ -1,10 +1,25 @@
+from collections import defaultdict
+
+
 def main(raw_input):
-    # Parse input
+    directions = raw_input
+    steps = {
+        '^': (0, -1),
+        '>': (1, 0),
+        'v': (0, 1),
+        '<': (-1, 0)
+    }
 
-    # Solve problem
+    visits = defaultdict(int)
+    pos = (0, 0)
 
-    # Return solution
-    return None
+    visits[pos] += 1
+    for i in directions:
+        step = steps[i]
+        pos = (pos[0] + step[0], pos[1] + step[1])
+        visits[pos] += 1
+
+    return len(visits)
 
 
 def get_input(filename):
