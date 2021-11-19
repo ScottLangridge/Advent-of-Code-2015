@@ -1,10 +1,8 @@
+import re
+
+
 def main(raw_input):
-    # Parse input
-
-    # Solve problem
-
-    # Return solution
-    return None
+    return sum([int(x) for x in re.findall(r'-?\d+', raw_input)])
 
 
 def get_input(filename):
