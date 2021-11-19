@@ -4,11 +4,8 @@ import re
 
 def main(raw_input):
     tree = json.loads(raw_input)
-
     tree = del_reds(tree)
-
     return sum([int(x) for x in re.findall(r'-?\d+', json.dumps(tree))])
-    return None
 
 
 def del_reds(node):
@@ -20,6 +17,7 @@ def del_reds(node):
         else:
             return [del_reds(x) for x in node.values()]
     return [del_reds(x) for x in node]
+
 
 def get_input(filename):
     with open(filename) as f:
