@@ -1,10 +1,22 @@
 def main(raw_input):
-    # Parse input
+    strings = raw_input.splitlines()
 
-    # Solve problem
+    chars_removed = 0
+    for string in strings:
+        chars_removed += 2
+        i = 0
+        while i < len(string) - 1:
+            if string[i] == '\\':
+                next_char = string[i + 1]
+                if next_char == '\\' or next_char == '"':
+                    chars_removed += 1
+                    i += 1
+                elif next_char == 'x':
+                    chars_removed += 3
+                    i += 3
+            i += 1
 
-    # Return solution
-    return None
+    return chars_removed
 
 
 def get_input(filename):

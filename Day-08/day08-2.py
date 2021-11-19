@@ -1,10 +1,14 @@
 def main(raw_input):
-    # Parse input
+    strings = raw_input.splitlines()
 
-    # Solve problem
+    char_diff = 0
+    for string in strings:
+        char_diff += 2
+        for char in string:
+            if char == '\\' or char == '"':
+                char_diff += 1
 
-    # Return solution
-    return None
+    return char_diff
 
 
 def get_input(filename):
